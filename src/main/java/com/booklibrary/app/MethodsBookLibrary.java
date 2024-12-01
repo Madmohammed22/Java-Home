@@ -5,6 +5,36 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+interface InnerMethodsBookLibrary {
+
+    boolean dispplayAllBook();
+
+    boolean searchOnBook();
+
+    boolean addBook(String dataInput);
+
+    boolean removeBook(String dataInput);
+}
+
+class implementsMethods implements InnerMethodsBookLibrary {
+    @Override
+    boolean displayBookLibrary() {
+        for (Map<String, LinkedList> current : targer) {
+            System.out.println(current.get(TITLE_MACRO).stream()
+                    .map(Object::toString)
+                    .collect(Collectors.joining(", ")));
+        }
+        return true;
+    }
+
+    @Override
+    boolean searchOnBook(){
+        return true;
+    }
+}
+
+
+
 public class MethodsBookLibrary extends ParsFile {
 
     public void proccessInput(String dataInput) {
@@ -56,6 +86,7 @@ public class MethodsBookLibrary extends ParsFile {
                 }
 
             }
+        } else if (dataInput.equals("5")) {
 
         }
     }
